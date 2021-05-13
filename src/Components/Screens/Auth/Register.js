@@ -119,13 +119,9 @@ const Login = () => {
 
   return (
     <FormContainer>
-      <Row>
-        <Col className="text-center my-4">
-        </Col>
-      </Row>
-      <h4>Sign Up</h4>
+      <h4 className="mb-3">Sign Up</h4>
       <form>
-        <div className="form-group">
+        <div className="mb-3">
           <label htmlFor="username">Email*</label>
           <input
             required
@@ -142,7 +138,7 @@ const Login = () => {
           />
           <span className="form-text text-danger">{errors.username || ""}</span>
         </div>
-        <div className="form-group">
+        <div className="mb-3">
           <label htmlFor="password">Password*</label>
           <Tippy
     					content="Your password must contain at least: 8 characters, 1 lower case letter, 1 upper case letter, 1 number and 1 special character"
@@ -185,7 +181,7 @@ const Login = () => {
 
       <Row className="py-3">
         <Col>
-          Already Have Account? <Link to={`/login`}> Login </Link>
+          Already Have Account? <Link to={`/login`}> Login  </Link>
         </Col>
       </Row>
     </FormContainer>

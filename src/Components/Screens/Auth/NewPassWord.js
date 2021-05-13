@@ -115,12 +115,8 @@ const NewPassWord = ({ match }) => {
 
   return (
     <FormContainer>
-      <Row>
-        <Col className="text-center my-4">
-        </Col>
-      </Row>
-      <h4>Reset Password</h4>
-      <div className="form-group">
+      <h4 className="mb-3">Reset Password</h4>
+      <div className="mb-3">
         <label htmlFor="verificationCode">Vertification Code</label>
         <input
           required
@@ -139,7 +135,7 @@ const NewPassWord = ({ match }) => {
           {errors.verificationCode || ""}
         </span>
       </div>
-      <div className="form-group">
+      <div className="mb-3">
         <label htmlFor="password">Password</label>{" "}
         <Tippy
           content="Your password must contain at least: 8 characters, 1 lower case letter, 1 upper case letter, 1 number and 1 special character"

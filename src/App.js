@@ -41,7 +41,7 @@ function App({ location }) {
   }, []);
 
   return (
-    <Fragment>
+    <div className="app">
       {isAuthenticating === false && (
         <Fragment>
           <Header auth={authProps} />
@@ -77,7 +77,7 @@ function App({ location }) {
           </Switch>
         </Fragment>
       )}
-    </Fragment>
+    </div>
   );
 }
 

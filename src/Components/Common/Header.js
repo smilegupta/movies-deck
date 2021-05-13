@@ -33,21 +33,21 @@ const Header = ({ auth }) => {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+      <Navbar expand="lg" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>Notes Yard</Navbar.Brand>
+            <Navbar.Brand>Movies Deck</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ml-auto">
+            <Nav className="ms-auto">
               {auth.isAuthenticated === true ? (
                 <Fragment>
                   <LinkContainer to="/home">
                     <Nav.Link> Home </Nav.Link>
                   </LinkContainer>
                   <LinkContainer to="/">
-                    <Nav.Link className="pr-0" onClick={(e) => handleLogout(e)}>
+                    <Nav.Link className="pe-0" onClick={(e) => handleLogout(e)}>
                       {" "}
                       Logout{" "}
                     </Nav.Link>
@@ -56,11 +56,11 @@ const Header = ({ auth }) => {
               ) : (
                 <Fragment>
                   <LinkContainer to="/register">
-                    <Nav.Link className="pr-0"> Sign Up </Nav.Link>
+                    <Nav.Link className="pe-0"> Sign Up </Nav.Link>
                   </LinkContainer>
 
                   <LinkContainer to="/login">
-                    <Nav.Link className="pr-0"> Sign In</Nav.Link>
+                    <Nav.Link className="pe-0"> Sign In</Nav.Link>
                   </LinkContainer>
                 </Fragment>
               )}

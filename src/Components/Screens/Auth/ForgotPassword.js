@@ -97,13 +97,9 @@ const ForgotPassword = ({ match }) => {
   };
   return (
     <FormContainer>
-      <Row>
-        <Col className="text-center my-4">
-        </Col>
-      </Row>
-      <h4>Reset Password</h4>
+      <h4 className="mb-3">Reset Password</h4>
       <p>Enter the email address associated with your account</p>
-      <div className="form-group">
+      <div className="mb-3">
         <label htmlFor="email">Email*</label>
         <input
           required
@@ -139,11 +135,11 @@ const ForgotPassword = ({ match }) => {
         <div className="col-md-8 col-sm-12 py-md-0 py-3 text-center d-md-flex align-items-center justify-content-end text-muted">
           Try signing in again?&nbsp;
           <Link to="/login">
-            <span>Sign In</span>
+            Sign In
           </Link>
         </div>
       </div>
-      <div className="alert alert-dark text-center my-4" role="alert">
+      <div className="alert alert-secondary text-center my-4" role="alert">
         We will send a verification code to your email, to create a new
         password.
       </div>

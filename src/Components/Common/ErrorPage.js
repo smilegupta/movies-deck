@@ -11,7 +11,7 @@ const ErrorPage = () => {
             The Page You Are Looking For Is Not Available!
           </h5>
           <Link to="/">
-            <Button className="btn btn-dark  mt-2 ml-2 p-2">Home Page</Button>
+            <Button className="btn btn-dark mt-2 ms-2 p-2">Home Page</Button>
           </Link>
         </Col>
       </Row>

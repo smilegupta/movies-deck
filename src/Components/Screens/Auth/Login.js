@@ -36,7 +36,11 @@ const Login = ({ auth }) => {
     )
       errors.email = "Please enter a valid email address";
 
-    if (!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(password))
+    if (
+      !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(
+        password
+      )
+    )
       errors.password = "Please enter a valid password";
 
     setErrors(errors);
@@ -60,7 +64,9 @@ const Login = ({ auth }) => {
       errors.email = "Please enter a valid email address";
 
     if (
-      !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(password) &&
+      !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(
+        password
+      ) &&
       visited.password
     )
       errors.password = "Please enter a valid password";
@@ -153,13 +159,9 @@ const Login = ({ auth }) => {
 
   return (
     <FormContainer>
-      <Row>
-        <Col className="text-center my-4">
-        </Col>
-      </Row>
-      <h4>Sign In</h4>
+      <h4 className="mb-3">Sign In</h4>
       <form>
-        <div className="form-group">
+        <div className="mb-3">
           <label htmlFor="email">Email*</label>
           <input
             required
@@ -185,7 +187,7 @@ const Login = ({ auth }) => {
             </p>
           )}
         </div>
-        <div className="form-group">
+        <div className="mb-3">
           <label htmlFor="password">Password*</label>
           <PasswordMask
             name="password"
@@ -210,7 +212,7 @@ const Login = ({ auth }) => {
             {" "}
             Forgot Password?{" "}
             <Link to={`/forgot-password/${email}`}>
-              <span className="text-dark">Click here</span>
+             Click here
             </Link>{" "}
           </p>
         </div>
@@ -231,7 +233,11 @@ const Login = ({ auth }) => {
 
       <Row className="py-3">
         <Col>
-          New User? <Link to={`/register`}> Register </Link>
+          New User?{" "}
+          <Link to={`/register`}>
+            {" "}
+            Register
+          </Link>
         </Col>
       </Row>
     </FormContainer>
