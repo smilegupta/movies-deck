@@ -1,7 +1,6 @@
 /* eslint-disable no-useless-escape */
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { Row, Col } from "react-bootstrap";
 import FormContainer from "./FormContainer";
 import { Auth } from "aws-amplify";
 import { toast } from "react-toastify";
