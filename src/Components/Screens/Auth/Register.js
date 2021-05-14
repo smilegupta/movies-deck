@@ -159,8 +159,8 @@ const Login = () => {
               setPassword(e.target.value);
             }}
             onBlur={handleVisited}
-            showButtonContent={<i className="la la-eye"></i>}
-            hideButtonContent={<i className="la la-eye-slash"></i>}
+            showButtonContent={<i className="la la-eye text-primary"></i>}
+            hideButtonContent={<i className="la la-eye-slash text-primary"></i>}
           />
           <span className="form-text text-danger">{errors.password || ""}</span>
         </div>
@@ -181,7 +181,7 @@ const Login = () => {
 
       <Row className="py-3">
         <Col>
-          Already Have Account? <Link to={`/login`}> Login  </Link>
+          Already Have Account? <Link to={`/login`}> <span className="text-primary"> Login </span>   </Link>
         </Col>
       </Row>
     </FormContainer>

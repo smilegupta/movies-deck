@@ -155,11 +155,11 @@ const NewPassWord = ({ match }) => {
           onBlur={handleVisited}
           showButtonContent={
             <i
-              className="la la-eye"
+              className="la la-eye text-primary"
               style={{ background: "transparent !important" }}
             ></i>
           }
-          hideButtonContent={<i className="la la-eye-slash"></i>}
+          hideButtonContent={<i className="la la-eye-slash text-primary"></i>}
         />
         <span className="form-text text-danger">{errors.password || ""}</span>
       </div>
@@ -182,7 +182,7 @@ const NewPassWord = ({ match }) => {
         <div className="col-md-8 col-sm-12 py-md-0 py-3 text-center d-md-flex align-items-center justify-content-end text-muted">
           Try signing in again?&nbsp;
           <Link to="/login">
-            <span>Sign In</span>
+            <span className="text-primary"> Sign In </span> 
           </Link>
         </div>
       </div>

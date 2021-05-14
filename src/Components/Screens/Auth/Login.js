@@ -201,18 +201,17 @@ const Login = ({ auth }) => {
             onBlur={handleVisited}
             showButtonContent={
               <i
-                className="la la-eye"
-                style={{ background: "transparent !important" }}
-              ></i>
+                className="la la-eye text-primary"
+                style={{ background: "transparent !important" }} />
             }
-            hideButtonContent={<i className="la la-eye-slash"></i>}
+            hideButtonContent={<i className="la la-eye-slash text-primary"></i>}
           />
           <span className="form-text text-danger">{errors.password || ""}</span>
           <p className="text-muted text-right cursor-pointer">
             {" "}
             Forgot Password?{" "}
             <Link to={`/forgot-password/${email}`}>
-             Click here
+            <span className="text-primary"> Click here </span>  
             </Link>{" "}
           </p>
         </div>
@@ -236,7 +235,7 @@ const Login = ({ auth }) => {
           New User?{" "}
           <Link to={`/register`}>
             {" "}
-            Register
+            <span className="text-primary"> Register </span>   
           </Link>
         </Col>
       </Row>

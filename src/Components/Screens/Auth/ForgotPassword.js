@@ -134,7 +134,7 @@ const ForgotPassword = ({ match }) => {
         <div className="col-md-8 col-sm-12 py-md-0 py-3 text-center d-md-flex align-items-center justify-content-end text-muted">
           Try signing in again?&nbsp;
           <Link to="/login">
-            Sign In
+           <span className="text-primary"> Sign In </span> 
           </Link>
         </div>
       </div>

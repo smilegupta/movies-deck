@@ -33,7 +33,7 @@ const Header = ({ auth }) => {
 
   return (
     <header>
-      <Navbar expand="lg" collapseOnSelect>
+      <Navbar bg="primary" variant="dark" expand="lg" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>Movies Deck</Navbar.Brand>
