@@ -1,23 +1,26 @@
 import { Row, Col, Container } from "react-bootstrap";
-import { Fragment, useEffect, useState } from "react";
-import { getAllMovies, getGenerList } from "../../../CRUD/homepage";
+import { useEffect, useState } from "react";
+import { getAllMovies } from "../../../CRUD/homepage";
+import moment from "moment";
 
 const Welcome = () => {
   const [movieList, setMovieList] = useState(null);
-  const [genreList, setGenreList] = useState(null);
   useEffect(() => {
     fetchMovieList();
   }, []);
 
   const fetchMovieList = async () => {
     const res = await getAllMovies();
-    const genre = await getGenerList();
     setMovieList(res.data.results);
-    console.log(genre.data.genres);
-    setGenreList(genre.data.genres);
+    console.log(res.data.results);
   };
   return (
     <Container className="my-md-5 my-3">
+      <Row className="mb-3">
+        <Col lg={12} md={12} sm={12} xs={12}>
+          <h4>Trending this week</h4>
+        </Col>
+      </Row>
       <Row>
         {movieList &&
           movieList.map((movie, idx) => (
@@ -29,20 +32,9 @@ const Welcome = () => {
                   className="w-100"
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{movie.title}</h5>
-                  <h6 className="card-subtitle text-muted">
-                    {movie.genre_ids.map((genre, idx) => (
-                      <Fragment>
-                        {genreList && (
-                          <span className="badge rounded-pill bg-primary m-1">
-                            {" "}
-                            {
-                              genreList.find((obj) => obj.id === genre).name
-                            }{" "}
-                          </span>
-                        )}
-                      </Fragment>
-                    ))}
+                  <h5 className="card-title text-primary">{movie.title}</h5>
+                  <h6 className="card-subtitle">
+                    {moment(movie.release_date).format("YYYY")}
                   </h6>
                 </div>
               </div>
