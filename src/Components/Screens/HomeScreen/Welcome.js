@@ -15,7 +15,7 @@ const Welcome = () => {
     setMovieList(res.data.results);
     const genre = await getGenerList();
     console.log(genre.data.genres);
-    setGenreList(genre.data.genres)
+    setGenreList(genre.data.genres);
   };
   return (
     <Container className="my-md-5 my-3">
@@ -28,19 +28,19 @@ const Welcome = () => {
             class="form-select form-select-sm"
             aria-label="Default select example"
           >
-            <option selected>Sort By</option>
-            <option value="popularity.desc">Popularity High to Low</option>
-            <option value="popularity.asc">Popularity Low to High</option>
-            <option value="release_date.asc">Popularity High to Low</option>
-            <option value="release_date.desc">Popularity High to Low</option>
+            <option value="" selected>
+              Filter By
+            </option>
+            {genreList &&
+              genreList.map((option, index) => (
+                <option key={index} value={option.id}>
+                  {option.name}
+                </option>
+              ))}
           </select>
         </Col>
       </Row>
-    
-      {
-        genreList && genreList.map((genre, idx) => <> <span class="badge rounded-pill bg-primary mb-2"> {genre.name} </span> </> )
-      }
-    
+
       <Row className="mt-3">
         {movieList &&
           movieList.map((movie, idx) => (
