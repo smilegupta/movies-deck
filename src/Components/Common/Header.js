@@ -7,8 +7,6 @@ import { toast } from "react-toastify";
 toast.configure();
 const Header = ({ auth }) => {
   let history = useHistory();
-  const pageRoute = history.location.pathname;
-
   // Logout Function
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -41,22 +39,15 @@ const Header = ({ auth }) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              {pageRoute === "/" && (
-                <form class="d-flex my-2">
-                  <input
-                    class="form-control me-sm-2"
-                    type="text"
-                    placeholder="Search"
-                  />
-                  <button
-                    class="btn btn-secondary my-2 my-sm-0 box-shadow-none"
-                    type="submit"
-                    style={{ display: "none" }}
-                  >
-                    Search
-                  </button>
-                </form>
-              )}
+            <LinkContainer to="/search">
+                    <Nav.Link>
+                      {" "}
+                      <button className="btn btn-secondary my-2 my-sm-0 box-shadow-none">
+                        {" "}
+                        Search{" "}
+                      </button>{" "}
+                    </Nav.Link>
+              </LinkContainer>
               {auth.isAuthenticated === true ? (
                 <Fragment>
                   <LinkContainer to="/home">

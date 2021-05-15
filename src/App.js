@@ -11,6 +11,7 @@ import { Auth } from "aws-amplify";
 import ProtectedRoute from "./Components/Common/ProtectedRoute";
 import ErrorPage from "./Components/Common/ErrorPage";
 import { getAllMovies } from "./CRUD/homepage";
+import Search from "./Components/Screens/HomeScreen/Search";
 
 function App() {
   // State Variables
@@ -67,6 +68,11 @@ function App() {
             <Route
               path="/"
               render={(props) => <Welcome {...props} auth={authProps} />}
+              exact
+            />
+            <Route
+              path="/search"
+              render={(props) => <Search {...props} auth={authProps} />}
               exact
             />
             <ProtectedRoute
