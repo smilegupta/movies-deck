@@ -2,8 +2,8 @@
 import { Row, Col, Container } from "react-bootstrap";
 import { useEffect, useState, useRef } from "react";
 import { getAllMovies, getGenerList } from "../../../CRUD/homepage";
-import moment from "moment";
 import useIntersectionObserver from "../../../hook";
+import MovieCard from "./MovieCard";
 
 const Welcome = ({ auth }) => {
   const loadMoreButton = useRef();
@@ -60,19 +60,11 @@ const Welcome = ({ auth }) => {
             {auth.movieList &&
               auth.movieList.map((movie, idx) => (
                 <Col key={idx} lg={3} md={3} sm={4} xs={6}>
-                  <div className="card image-container d-flex justify-content-start mb-3">
-                    <img
-                      src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                      alt={movie.title}
-                      className="w-100"
-                    />
-                    <div className="card-body">
-                      <h5 className="card-title text-primary">{movie.title}</h5>
-                      <h6 className="card-subtitle">
-                        {moment(movie.release_date).format("YYYY")}
-                      </h6>
-                    </div>
-                  </div>
+                  <MovieCard
+                    title={movie.title}
+                    poster_path={movie.poster_path}
+                    release_date={movie.release_date}
+                  />
                 </Col>
               ))}
           </Row>
