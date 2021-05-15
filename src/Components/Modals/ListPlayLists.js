@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { listWatchLists, createMovie } from "../../CRUD/queries";
 import { axiosFun } from "../../CRUD/axios.config";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 toast.configure();
 Modal.setAppElement("*");
 
@@ -109,6 +110,14 @@ const AddMovie = ({
                     </span>
                   </Col>
                 ))}
+              <Col lg={12} md={12} sm={12} xs={12} className="mb-2">
+                <Link to="/home">
+                  <span className="cursor-pointer">
+                    Create Watchlist{" "}
+                    <i className="las la-plus cursor-pointer" />
+                  </span>
+                </Link>
+              </Col>
             </Row>
           </div>
         </div>
