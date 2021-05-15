@@ -9,13 +9,12 @@ const Search = () => {
   const [searchResponse, setSearchResponse] = useState();
 
   const searchingMovie = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const res = await searchMovies(searchTerm);
-    setSearchResponse(res.data.results)
-    setSearchTerm("")
+    setSearchResponse(res.data.results);
+    setSearchTerm("");
   };
 
-  
   return (
     <Container className="my-md-5 my-3">
       <Row className="mb-3">
@@ -51,12 +50,18 @@ const Search = () => {
                   title={movie.title}
                   poster_path={movie.poster_path}
                   release_date={movie.release_date}
+                  overview={movie.overview}
+                  vote_average={movie.vote_average}
+                  backdrop_path={movie.backdrop_path}
                 />
               </Col>
             ))}{" "}
           </>
         ) : (
-          <h6 className="text-center mt-5"> No result found, try using someither keywords. </h6>
+          <h6 className="text-center mt-5">
+            {" "}
+            No result found, try using someither keywords.{" "}
+          </h6>
         )}
       </Row>
     </Container>

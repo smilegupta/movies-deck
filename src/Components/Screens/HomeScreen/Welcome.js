@@ -64,6 +64,9 @@ const Welcome = ({ auth }) => {
                     title={movie.title}
                     poster_path={movie.poster_path}
                     release_date={movie.release_date}
+                    overview={movie.overview}
+                    vote_average={movie.vote_average}
+                    backdrop_path={movie.backdrop_path}
                   />
                 </Col>
               ))}

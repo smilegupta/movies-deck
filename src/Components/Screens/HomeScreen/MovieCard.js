@@ -1,11 +1,33 @@
-import React from "react";
+import { useState, Fragment } from "react";
 import moment from "moment";
+import MoviesDetails from "../../Modals/MoviesDetails";
 
-const MovieCard = ({title, poster_path, release_date }) => {
+const MovieCard = ({
+  title,
+  poster_path,
+  release_date,
+  overview,
+  vote_average,
+  backdrop_path,
+}) => {
+  const [modalStatus, setModalStatus] = useState(false);
+
+  const openModal = () => {
+    setModalStatus(true);
+  };
+
   return (
-    <div className="card image-container d-flex justify-content-start mb-3">
+    <Fragment>
+      <div
+        className="card image-container d-flex justify-content-start mb-3"
+        onClick={() => openModal(title)}
+      >
         <img
-          src={!poster_path ? "https://image-dock-uploads-be.s3.ap-south-1.amazonaws.com/image.2021-05-15T07%3A20%3A12.528Z" : `https://image.tmdb.org/t/p/w500/${poster_path}`}
+          src={
+            !poster_path
+              ? "https://image-dock-uploads-be.s3.ap-south-1.amazonaws.com/image.2021-05-15T07%3A20%3A12.528Z"
+              : `https://image.tmdb.org/t/p/w500/${poster_path}`
+          }
           alt={title}
           className="w-100"
         />
@@ -16,6 +38,16 @@ const MovieCard = ({title, poster_path, release_date }) => {
           </h6>
         </div>
       </div>
+      <MoviesDetails
+        modalStatus={modalStatus}
+        setModalStatus={setModalStatus}
+        movieTitle={title}
+        overview={overview}
+        vote_average={vote_average}
+        poster_path={poster_path}
+        backdrop_path={backdrop_path}
+      />
+    </Fragment>
   );
 };
 
