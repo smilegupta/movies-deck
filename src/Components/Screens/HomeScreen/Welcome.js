@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Row, Col, Container } from "react-bootstrap";
 import { useEffect, useState, useRef } from "react";
-import { getAllMovies, getGenerList } from "../../../CRUD/homepage";
+import { getAllMovies, getGenerList } from "../../../CRUD/movies";
 import useIntersectionObserver from "../../../hook";
 import MovieCard from "./MovieCard";
 

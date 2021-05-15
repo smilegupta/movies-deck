@@ -10,7 +10,7 @@ import NewPassWord from "./Components/Screens/Auth/NewPassWord";
 import { Auth } from "aws-amplify";
 import ProtectedRoute from "./Components/Common/ProtectedRoute";
 import ErrorPage from "./Components/Common/ErrorPage";
-import { getAllMovies } from "./CRUD/homepage";
+import { getAllMovies } from "./CRUD/movies";
 import Search from "./Components/Screens/HomeScreen/Search";
 
 function App() {
