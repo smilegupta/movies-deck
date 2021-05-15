@@ -48,6 +48,7 @@ const MovieCard = ({
         overview={overview}
         vote_average={vote_average}
         poster_path={poster_path}
+        release_date={release_date}
         backdrop_path={backdrop_path}
         genre_ids={genre_ids}
         id={id}

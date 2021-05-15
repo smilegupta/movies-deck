@@ -13,6 +13,8 @@ const ReadNote = ({
   auth,
   genre_ids,
   id,
+  poster_path,
+  release_date
 }) => {
   const genreMapping = Object.fromEntries(
     auth.genreList.map((g) => [g.id, g.name])
@@ -96,6 +98,12 @@ const ReadNote = ({
         modalStatus={listModalStatus}
         setModalStatus={setListModalStatus}
         auth={auth}
+        movieTitle={movieTitle}
+        poster_path={poster_path}
+        release_date={release_date}
+        backdrop_path={backdrop_path}
+        genre_ids={genre_ids}
+        id={id}
       />
     </Fragment>
   );

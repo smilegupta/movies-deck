@@ -31,3 +31,15 @@ export const listWatchLists = (userId) => {
   };
   
 
+  export const createMovie = (userId, movieTitle, backdrop_path, id, poster_path, release_date, watchListId) => {
+    const query = {
+      query: `mutation MyMutation {
+        createMovies(
+            input: {watchListId: "${watchListId}", userId: "${userId}", title: "${movieTitle}", releaseDate: "${release_date}", posterPath: "${poster_path}", movieId:"${id}", backdropPath: "${backdrop_path}" }
+          ) {
+            movieId
+          }
+        }`,
+    };
+    return query;
+  };
