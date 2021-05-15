@@ -13,6 +13,7 @@ import ProtectedRoute from "./Components/Common/ProtectedRoute";
 import ErrorPage from "./Components/Common/ErrorPage";
 import { getAllMovies, getGenerList } from "./CRUD/movies";
 import Search from "./Components/Screens/HomeScreen/Search";
+import Watchlist from "./Components/Screens/HomeScreen/Watchlist"
 
 function App() {
   // State Variables
@@ -89,6 +90,11 @@ function App() {
             <ProtectedRoute
               path="/home"
               component={HomeScreen}
+              auth={authProps}
+            />
+            <ProtectedRoute
+              path="/watchlist/:id"
+              component={Watchlist}
               auth={authProps}
             />
             <Route

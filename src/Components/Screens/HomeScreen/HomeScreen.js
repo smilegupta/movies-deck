@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import CreateCollection from "../../Modals/CreateCollection";
 import { listWatchLists } from "../../../CRUD/queries";
 import { axiosFun } from "../../../CRUD/axios.config";
+import { Link } from "react-router-dom";
 
 const HomeScreen = ({ auth }) => {
   const [watchListRes, setWatchListRes] = useState();
@@ -34,15 +35,20 @@ const HomeScreen = ({ auth }) => {
           watchListRes
             .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
             .map((watchList, idx) => (
-              <Col lg={3} md={3} sm={6} xs={6} key={idx}>
+              <Col lg={3} md={3} sm={12} xs={12} key={idx}>
                 <div className="card watch-list text-white bg-primary mb-3  cursor-pointer">
                   <div className="card-body">
-                    <h4 className="card-title block-with-title-text">
-                      {watchList.name}
-                    </h4>
-                    <p className="card-text block-with-text">
-                      {watchList.description}
-                    </p>
+                    <Link
+                      to={`/watchlist/${watchList.watchListId}`}
+                      style={{ color: "white" }}
+                    >
+                      <h4 className="card-title block-with-title-text">
+                        {watchList.name}
+                      </h4>
+                      <p className="card-text block-with-text">
+                        {watchList.description}
+                      </p>
+                    </Link>
                   </div>
                 </div>
               </Col>
