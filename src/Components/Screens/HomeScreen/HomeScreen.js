@@ -33,8 +33,8 @@ const HomeScreen = ({ auth }) => {
         {watchListRes &&
           watchListRes
             .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-            .map((watchList) => (
-              <Col lg={3} md={3} sm={6} xs={6}>
+            .map((watchList, idx) => (
+              <Col lg={3} md={3} sm={6} xs={6} key={idx}>
                 <div className="card watch-list text-white bg-primary mb-3  cursor-pointer">
                   <div className="card-body">
                     <h4 className="card-title block-with-title-text">
