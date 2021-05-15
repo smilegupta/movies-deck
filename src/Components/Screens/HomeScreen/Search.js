@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Row, Col, Container } from "react-bootstrap";
 import { useState } from "react";
 import { searchMovies } from "../../../CRUD/movies";
@@ -6,13 +7,15 @@ import MovieCard from "./MovieCard";
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResponse, setSearchResponse] = useState();
-  const searchingMovie = async (e, value) => {
-    e.preventDefault();
-    setSearchTerm(value)
+
+  const searchingMovie = async (e) => {
+    e.preventDefault()
     const res = await searchMovies(searchTerm);
-    console.log(res.data.results)
-    setSearchResponse(res.data.results);
+    setSearchResponse(res.data.results)
+    setSearchTerm("")
   };
+
+  
   return (
     <Container className="my-md-5 my-3">
       <Row className="mb-3">
@@ -26,7 +29,7 @@ const Search = () => {
               type="search"
               placeholder="Search"
               value={searchTerm}
-              onChange={(e) => searchingMovie(e, e.target.value)}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button
               className="btn btn-secondary my-2 my-sm-0"
@@ -53,7 +56,7 @@ const Search = () => {
             ))}{" "}
           </>
         ) : (
-          <span> No result found </span>
+          <h6 className="text-center mt-5"> No result found, try using someither keywords. </h6>
         )}
       </Row>
     </Container>
