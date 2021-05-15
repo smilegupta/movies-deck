@@ -1,4 +1,4 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment, useRef } from "react";
 import Header from "./Components/Common/Header";
 import HomeScreen from "./Components/Screens/HomeScreen/HomeScreen";
 import Welcome from "./Components/Screens/HomeScreen/Welcome";
@@ -10,12 +10,16 @@ import NewPassWord from "./Components/Screens/Auth/NewPassWord";
 import { Auth } from "aws-amplify";
 import ProtectedRoute from "./Components/Common/ProtectedRoute";
 import ErrorPage from "./Components/Common/ErrorPage";
+import { getAllMovies } from "./CRUD/homepage";
 
-function App({ location }) {
+function App() {
   // State Variables
   const [isAuthenticated, setAuthenticated] = useState(false);
   const [isAuthenticating, setAuthenticating] = useState(true);
   const [user, setUser] = useState(null);
+  const [movieList, setMovieList] = useState(null);
+  const [pattern, setPattern] = useState("");
+  const responsePageCount = useRef();
 
   // Props for Session Management
   const authProps = {
@@ -23,6 +27,11 @@ function App({ location }) {
     user,
     setUser,
     setAuthenticated,
+    movieList,
+    setMovieList,
+    pattern,
+    setPattern,
+    responsePageCount,
   };
 
   useEffect(() => {
@@ -40,13 +49,26 @@ function App({ location }) {
     sessionChecker();
   }, []);
 
+  useEffect(() => {
+    async function getDefaultData() {
+      const res = await getAllMovies(1, pattern);
+      setMovieList(res.data.results);
+      responsePageCount.current = res.data.total_pages;
+    }
+    getDefaultData();
+  }, [pattern]);
+
   return (
     <div className="app">
       {isAuthenticating === false && (
         <Fragment>
           <Header auth={authProps} />
           <Switch>
-            <Route path="/" component={Welcome} exact />
+            <Route
+              path="/"
+              render={(props) => <Welcome {...props} auth={authProps} />}
+              exact
+            />
             <ProtectedRoute
               path="/home"
               component={HomeScreen}

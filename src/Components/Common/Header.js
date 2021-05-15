@@ -5,9 +5,9 @@ import { LinkContainer } from "react-router-bootstrap";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 toast.configure();
-
 const Header = ({ auth }) => {
   let history = useHistory();
+  const pageRoute = history.location.pathname;
 
   // Logout Function
   const handleLogout = async (e) => {
@@ -41,26 +41,59 @@ const Header = ({ auth }) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
+              {pageRoute === "/" && (
+                <form class="d-flex my-2">
+                  <input
+                    class="form-control me-sm-2"
+                    type="text"
+                    placeholder="Search"
+                  />
+                  <button
+                    class="btn btn-secondary my-2 my-sm-0 box-shadow-none"
+                    type="submit"
+                    style={{ display: "none" }}
+                  >
+                    Search
+                  </button>
+                </form>
+              )}
               {auth.isAuthenticated === true ? (
                 <Fragment>
                   <LinkContainer to="/home">
-                    <Nav.Link> Home </Nav.Link>
+                    <Nav.Link>
+                      {" "}
+                      <button className="btn btn-secondary my-2 my-sm-0 box-shadow-none">
+                        {" "}
+                        Home{" "}
+                      </button>{" "}
+                    </Nav.Link>
                   </LinkContainer>
                   <LinkContainer to="/">
                     <Nav.Link className="pe-0" onClick={(e) => handleLogout(e)}>
-                      {" "}
-                      Logout{" "}
+                      <button className="btn btn-secondary my-2 my-sm-0 box-shadow-none">
+                        {" "}
+                        Logout{" "}
+                      </button>
                     </Nav.Link>
                   </LinkContainer>
                 </Fragment>
               ) : (
                 <Fragment>
                   <LinkContainer to="/register">
-                    <Nav.Link className="pe-0"> Sign Up </Nav.Link>
+                    <Nav.Link className="pe-0">
+                      {" "}
+                      <button className="btn btn-secondary my-2 my-sm-0 box-shadow-none">
+                        Sign Up{" "}
+                      </button>{" "}
+                    </Nav.Link>
                   </LinkContainer>
-
                   <LinkContainer to="/login">
-                    <Nav.Link className="pe-0"> Sign In</Nav.Link>
+                    <Nav.Link className="pe-0">
+                      {" "}
+                      <button className="btn btn-secondary my-2 my-sm-0 box-shadow-none">
+                        Sign In
+                      </button>{" "}
+                    </Nav.Link>
                   </LinkContainer>
                 </Fragment>
               )}
