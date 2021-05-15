@@ -28,7 +28,7 @@ const Welcome = ({ auth }) => {
   useIntersectionObserver({
     target: loadMoreButton,
     onIntersect: fetchMoreMovies,
-    enabled: pageCountValue.current <= 500,
+    enabled: pageCountValue.current <= auth.responsePageCount.current,
   });
 
   return (

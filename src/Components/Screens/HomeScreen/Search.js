@@ -6,9 +6,9 @@ import MovieCard from "./MovieCard";
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResponse, setSearchResponse] = useState();
-  const searchingMovie = async (e) => {
+  const searchingMovie = async (e, value) => {
     e.preventDefault();
-    console.log("api calling");
+    setSearchTerm(value)
     const res = await searchMovies(searchTerm);
     console.log(res.data.results)
     setSearchResponse(res.data.results);
@@ -26,7 +26,7 @@ const Search = () => {
               type="search"
               placeholder="Search"
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => searchingMovie(e, e.target.value)}
             />
             <button
               className="btn btn-secondary my-2 my-sm-0"
