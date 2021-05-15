@@ -19,7 +19,7 @@ const MovieCard = ({
   return (
     <Fragment>
       <div
-        className="card image-container d-flex justify-content-start mb-3"
+        className="card image-container d-flex justify-content-start mb-3 cursor-pointer"
         onClick={() => openModal(title)}
       >
         <img
