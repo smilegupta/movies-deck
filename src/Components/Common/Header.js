@@ -39,14 +39,14 @@ const Header = ({ auth }) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-            <LinkContainer to="/search">
-                    <Nav.Link>
-                      {" "}
-                      <button className="btn btn-secondary my-2 my-sm-0 box-shadow-none">
-                        {" "}
-                        Search{" "}
-                      </button>{" "}
-                    </Nav.Link>
+              <LinkContainer to="/search">
+                <Nav.Link>
+                  {" "}
+                  <button className="btn btn-secondary my-2 my-sm-0 box-shadow-none">
+                    {" "}
+                    Search{" "}
+                  </button>{" "}
+                </Nav.Link>
               </LinkContainer>
               {auth.isAuthenticated === true ? (
                 <Fragment>
@@ -55,7 +55,7 @@ const Header = ({ auth }) => {
                       {" "}
                       <button className="btn btn-secondary my-2 my-sm-0 box-shadow-none">
                         {" "}
-                        Home{" "}
+                        Your Watchlist{" "}
                       </button>{" "}
                     </Nav.Link>
                   </LinkContainer>

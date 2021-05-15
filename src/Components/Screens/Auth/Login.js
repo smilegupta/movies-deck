@@ -107,7 +107,7 @@ const Login = ({ auth }) => {
       setLoading(false);
       auth.setAuthenticated(true);
       auth.setUser(res);
-      history.push(`/home`);
+      history.push(`/`);
     } catch (err) {
       let error = err.message;
       if (err.message === "User is not confirmed.") {
