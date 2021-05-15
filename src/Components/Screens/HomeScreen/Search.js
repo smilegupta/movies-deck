@@ -4,7 +4,7 @@ import { useState } from "react";
 import { searchMovies } from "../../../CRUD/movies";
 import MovieCard from "./MovieCard";
 
-const Search = () => {
+const Search = ({ auth }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResponse, setSearchResponse] = useState();
 
@@ -53,6 +53,9 @@ const Search = () => {
                   overview={movie.overview}
                   vote_average={movie.vote_average}
                   backdrop_path={movie.backdrop_path}
+                  auth={auth}
+                  genre_ids={movie.genre_ids}
+                  id={movie.id}
                 />
               </Col>
             ))}{" "}

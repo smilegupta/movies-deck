@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, Fragment, useRef } from "react";
 import Header from "./Components/Common/Header";
 import HomeScreen from "./Components/Screens/HomeScreen/HomeScreen";
@@ -10,7 +11,7 @@ import NewPassWord from "./Components/Screens/Auth/NewPassWord";
 import { Auth } from "aws-amplify";
 import ProtectedRoute from "./Components/Common/ProtectedRoute";
 import ErrorPage from "./Components/Common/ErrorPage";
-import { getAllMovies } from "./CRUD/movies";
+import { getAllMovies, getGenerList } from "./CRUD/movies";
 import Search from "./Components/Screens/HomeScreen/Search";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
   const [movieList, setMovieList] = useState(null);
   const [pattern, setPattern] = useState("");
   const responsePageCount = useRef();
+  const [genreList, setGenreList] = useState(null);
 
   // Props for Session Management
   const authProps = {
@@ -33,6 +35,7 @@ function App() {
     pattern,
     setPattern,
     responsePageCount,
+    genreList, setGenreList
   };
 
   useEffect(() => {
@@ -48,6 +51,14 @@ function App() {
       setAuthenticating(false);
     }
     sessionChecker();
+  }, []);
+
+  useEffect(() => {
+    async function getGenreList() {
+      const genre = await getGenerList();
+      setGenreList(genre.data.genres);
+    }
+    getGenreList();
   }, []);
 
   useEffect(() => {

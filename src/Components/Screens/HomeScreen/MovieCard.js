@@ -9,6 +9,9 @@ const MovieCard = ({
   overview,
   vote_average,
   backdrop_path,
+  genre_ids,
+  id,
+  auth
 }) => {
   const [modalStatus, setModalStatus] = useState(false);
 
@@ -46,6 +49,9 @@ const MovieCard = ({
         vote_average={vote_average}
         poster_path={poster_path}
         backdrop_path={backdrop_path}
+        genre_ids={genre_ids}
+        id={id}
+        auth={auth}
       />
     </Fragment>
   );

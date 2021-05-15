@@ -1,21 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Row, Col, Container } from "react-bootstrap";
-import { useEffect, useState, useRef } from "react";
-import { getAllMovies, getGenerList } from "../../../CRUD/movies";
+import { useRef } from "react";
+import { getAllMovies } from "../../../CRUD/movies";
 import useIntersectionObserver from "../../../hook";
 import MovieCard from "./MovieCard";
 
 const Welcome = ({ auth }) => {
   const loadMoreButton = useRef();
-  const [genreList, setGenreList] = useState(null);
   const pageCountValue = useRef(1);
-  useEffect(() => {
-    fetchMovieList();
-  }, []);
-  const fetchMovieList = async () => {
-    const genre = await getGenerList();
-    setGenreList(genre.data.genres);
-  };
 
   const fetchMoreMovies = async () => {
     pageCountValue.current += 1;
@@ -47,8 +39,8 @@ const Welcome = ({ auth }) => {
                 onChange={(e) => auth.setPattern(e.target.value)}
               >
                 <option value="">Filter By</option>
-                {genreList &&
-                  genreList.map((option, index) => (
+                {auth.genreList &&
+                  auth.genreList.map((option, index) => (
                     <option key={index} value={option.id}>
                       {option.name}
                     </option>
@@ -67,6 +59,9 @@ const Welcome = ({ auth }) => {
                     overview={movie.overview}
                     vote_average={movie.vote_average}
                     backdrop_path={movie.backdrop_path}
+                    auth={auth}
+                    genre_ids={movie.genre_ids}
+                    id={movie.id}
                   />
                 </Col>
               ))}
