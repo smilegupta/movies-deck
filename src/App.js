@@ -13,7 +13,7 @@ import ProtectedRoute from "./Components/Common/ProtectedRoute";
 import ErrorPage from "./Components/Common/ErrorPage";
 import { getAllMovies, getGenerList } from "./CRUD/movies";
 import Search from "./Components/Screens/HomeScreen/Search";
-import Watchlist from "./Components/Screens/HomeScreen/Watchlist"
+import Watchlist from "./Components/Screens/HomeScreen/Watchlist";
 
 function App() {
   // State Variables
@@ -36,7 +36,8 @@ function App() {
     pattern,
     setPattern,
     responsePageCount,
-    genreList, setGenreList
+    genreList,
+    setGenreList,
   };
 
   useEffect(() => {
@@ -93,7 +94,7 @@ function App() {
               auth={authProps}
             />
             <ProtectedRoute
-              path="/watchlist/:id"
+              path="/watchlist/:id/:name"
               component={Watchlist}
               auth={authProps}
             />

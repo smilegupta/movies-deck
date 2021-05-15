@@ -42,4 +42,21 @@ export const listWatchLists = (userId) => {
         }`,
     };
     return query;
+};
+
+export const listMovies = (watchListId) => {
+  const query = {
+    query: `query listMoviess {
+      listMoviess(watchListId: "${watchListId}") {
+        items {
+          posterPath
+          title
+          releaseDate
+          movieId
+        }
+      }
+    }`,
   };
+  return query;
+};
+

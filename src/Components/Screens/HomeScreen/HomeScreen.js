@@ -39,7 +39,7 @@ const HomeScreen = ({ auth }) => {
                 <div className="card watch-list text-white bg-primary mb-3  cursor-pointer">
                   <div className="card-body">
                     <Link
-                      to={`/watchlist/${watchList.watchListId}`}
+                      to={`/watchlist/${watchList.watchListId}/${watchList.name}`}
                       style={{ color: "white" }}
                     >
                       <h4 className="card-title block-with-title-text">
