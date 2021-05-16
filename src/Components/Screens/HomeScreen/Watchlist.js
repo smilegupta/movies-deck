@@ -29,9 +29,10 @@ const Watchlist = () => {
       </Row>
       {movies && movies.length > 0 ? (
         <Row>
-          <Col lg={3} md={3} xs={6} sm={6}>
-            <div>
+          
+         
               {movies.map((movie, idx) => (
+                <Col lg={3} md={3} xs={6} sm={6}>
                 <div
                   className="card image-container d-flex justify-content-start mb-3 cursor-pointer"
                   key={idx}
@@ -53,9 +54,9 @@ const Watchlist = () => {
                     </h6>
                   </div>
                 </div>
+                </Col>
               ))}
-            </div>
-          </Col>
+           
         </Row>
       ) : (
         <span> There are no movies in this watchlist </span>
